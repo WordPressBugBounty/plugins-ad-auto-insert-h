@@ -3,8 +3,8 @@ Contributors: tabibitojin
 Donate link: https://paypal.me/tabibitojin
 Tags: google adsense, ad auto inserter, before headline, ads lazyload , Google Analytics, Header insert, グーグルアドセンス, 広告自動挿入, 見出し前, 遅延読込み, グーグルアナリティスク, ヘッダ挿入
 Requires at least: 5.0
-Tested up to: 6.4
-Stable tag: 1.6.1
+Tested up to: 6.9.4
+Stable tag: 1.6.2
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -84,6 +84,9 @@ You can also set seconds to automatically load ads when users do nothing.
 
 
 == Changelog ==
+= 1.6.2 =
+Tested up to WordPress 6.9.4.
+
 = 1.6.1 =
 Added the following settings to the meta field
 
