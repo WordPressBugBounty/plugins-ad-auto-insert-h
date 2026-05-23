@@ -512,6 +512,7 @@ add_action( 'wp_enqueue_scripts', 'aaih__add_css' );
  * - $plugin	: __FILE__ を渡せば、$path を現在の PHP スクリプトファイルの親ディレクトリーからの相対パスとして扱える
  * https://developer.wordpress.org/reference/functions/plugins_url/
  */
+/*
 function aaih__add_css() {
 
 	$debug_mode_onoff = aaih__get_item( 'debug_mode_onoff' );
@@ -519,6 +520,29 @@ function aaih__add_css() {
 	// プレビューのデバッグ情報表示用
 	if ( is_preview() && 'on' === $debug_mode_onoff ) {
 		wp_enqueue_style( 'aaih__preview_css' , plugins_url( 'css/' . AAIH__MENU_SLUG . '-preview.css' , __FILE__ ) );
+	}
+}
+*/
+function aaih__add_css() {
+
+	// プレビュー画面以外では不要
+	if ( ! is_preview() ) {
+		return;
+	}
+
+	// 設定値を取得
+	$settings = aaih__get_item();
+
+	// カスタムフィールド（記事個別設定）を反映
+	$settings = aaih__meta_data_check( $settings );
+
+	// デバッグ表示ON時のみ preview.css を読み込む
+	if ( 'show' === aaih__debug_msg_show( $settings ) ) {
+
+		wp_enqueue_style(
+			'aaih__preview_css',
+			plugins_url( 'css/' . AAIH__MENU_SLUG . '-preview.css' , __FILE__ )
+		);
 	}
 }
 

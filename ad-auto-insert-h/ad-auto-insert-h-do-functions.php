@@ -163,12 +163,6 @@ function aaih__main_loop_end_chk( $content_return_chk , $part1_all , $part2_all 
  * 返り値：post type チェック結果を返す
  */
 function aaih__ad_insert__init( & $settings, & $the_content) {
-
-	// 日本語翻訳表示対応
-	if ( 'show' === aaih__debug_msg_show( $settings ) ) {
-		aaih__add_translation();
-	}
-
 	/*
 	 * post type チェック
 	 *
@@ -188,6 +182,11 @@ function aaih__ad_insert__init( & $settings, & $the_content) {
 
 	// カスタムフィールド（記事個別の設定）を反映
 	$settings	= aaih__meta_data_check( $settings );
+
+	// 管理画面の設定、記事個別の設定を見て日本語翻訳表示対応
+	if ( 'show' === aaih__debug_msg_show( $settings ) ) {
+		aaih__add_translation();
+	}
 
 	return 'selected_post_type';
 }

@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
  * 設定リセットと結果表示
  * - 設定値のリセット動作
